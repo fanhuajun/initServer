@@ -1,0 +1,42 @@
+#!/bin/bash
+#operating system: CentOS  above 7.2
+
+
+
+#yum install jdk-1.8
+# wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u111-b14/jdk-8u111-linux-x64.tar.gz
+
+
+#yum install nginx
+
+
+
+#yum install mysql	
+
+
+
+#yum install mosquitto
+mosquitto() {
+	#配置yum
+    cp ./data/mosquitto.repo  /etc/yum.repos.d/
+	yum install mosquitto mosquitto-clients
+	service mosquitto start
+}
+#wget download tomcat
+# wget https://mirrors.aliyun.com/apache/tomcat/tomcat-8/v8.5.14/bin/apache-tomcat-8.5.14.tar.gz
+
+
+start(){
+	mosquitto;
+}
+
+case "$1" in
+	start )
+		start;;
+	mosquitto)
+        mosquitto;;
+		*)
+        echo "Usage: $0 {start|mosquitto}"
+            exit 1
+esac
+exit 0
