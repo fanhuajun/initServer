@@ -15,11 +15,16 @@ jdk() {
 
 #yum install redis
 install_redis() {
+    yum install tcl
+  
 	# wget http://download.redis.io/releases/redis-3.2.8.tar.gz
 	[ -d  $install_path/redis ] || mkdir -p $install_path/redis
 	tar -zvxf  $software_path/redis-* -C $install_path/redis/
 	cd $install_path/redis/redis-*/
-	ll
+	dir
+	make
+    make test
+    make install
 
 }
 
