@@ -35,7 +35,7 @@ start(){
 }
 
 testFun() {
-	echo ./data/javaEnvironment  >> ./data/testFun
+	cat ./data/javaEnvironment >> ./data/testFun
 
 }
 
