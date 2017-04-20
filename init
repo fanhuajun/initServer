@@ -1,5 +1,5 @@
 #!/bin/bash
-#operating system: CentOS  above 7.2
+#operating system:  CentOS 6.x
 # git clone https://github.com/357724264/initServer.git
 software_path=/data/
 install_path=/usr/local/
@@ -32,9 +32,17 @@ install_redis() {
 
 
 
-#yum install mysql	
+#yum install mysql	CentOS 6.x
 install_mysql() {
-	yum install mysql
+	wget https://repo.mysql.com//mysql57-community-release-el6-10.noarch.rpm
+	sudo rpm -Uvh mysql57-community-release-el6-10.noarch.rpm
+	yum repolist all | grep mysql
+	yum repolist enabled | grep mysql
+	sudo yum install mysql-community-server
+	sudo service mysqld start
+	sudo service mysqld status
+
+	#mysql -uroot -p 
 
 }
 
