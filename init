@@ -4,7 +4,9 @@
 
 
 #yum install jdk-1.8
-# wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u111-b14/jdk-8u111-linux-x64.tar.gz
+jdk() {
+	wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u111-b14/jdk-8u111-linux-x64.tar.gz
+}
 
 
 #yum install nginx
@@ -23,11 +25,18 @@ mosquitto() {
 	service mosquitto start
 }
 #wget download tomcat
-# wget https://mirrors.aliyun.com/apache/tomcat/tomcat-8/v8.5.14/bin/apache-tomcat-8.5.14.tar.gz
+tomcat() {
+	wget https://mirrors.aliyun.com/apache/tomcat/tomcat-8/v8.5.14/bin/apache-tomcat-8.5.14.tar.gz
+}
 
 
 start(){
 	mosquitto;
+}
+
+testFun() {
+	echo ./data/javaEnvironment  ./data/testFun
+
 }
 
 case "$1" in
@@ -35,6 +44,8 @@ case "$1" in
 		start;;
 	mosquitto)
         mosquitto;;
+    test)
+        testFun;;
 		*)
         echo "Usage: $0 {start|mosquitto}"
             exit 1
