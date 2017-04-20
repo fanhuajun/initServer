@@ -9,17 +9,27 @@ jdk() {
 	#wget -P $software_path --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u111-b14/jdk-8u111-linux-x64.tar.gz
     [ -d  /usr/java ] || mkdir -p /usr/java
     cp $software_path/jdk-8u111-linux-x64.tar.gz  /usr/java/
-    tar -zvxf  /usr/java/jdk-8u111-linux-x64.tar.gz -C /usr/java/
+    tar -zvxf  /usr/java/jdk-* -C /usr/java/
     cat ./data/javaEnvironment >> /etc/profile
 }
 
+#yum install redis
+install_redis() {
+	# wget http://download.redis.io/releases/redis-3.2.8.tar.gz
+	[ -d  $install_path/redis ] || mkdir -p $install_path/redis
+	tar -zvxf  $software_path/redis-* -C $install_path/redis/
+
+}
 
 #yum install nginx
 
 
 
 #yum install mysql	
+install_mysql() {
+	yum install mysql
 
+}
 
 
 #yum install mosquitto
@@ -41,6 +51,7 @@ tomcat() {
 start(){
 	#mosquitto;
 	jdk;
+	tomcat;
 }
 
 testFun() {
