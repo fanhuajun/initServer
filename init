@@ -34,8 +34,11 @@ install_redis() {
 
 #yum install mysql	CentOS 6.x
 install_mysql() {
+
 	wget https://repo.mysql.com//mysql57-community-release-el6-10.noarch.rpm
 	sudo rpm -Uvh mysql57-community-release-el6-10.noarch.rpm
+
+    ### start install
 	yum repolist all | grep mysql
 	yum repolist enabled | grep mysql
 	sudo yum install mysql-community-server
