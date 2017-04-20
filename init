@@ -1,11 +1,14 @@
 #!/bin/bash
 #operating system: CentOS  above 7.2
 # git clone https://github.com/357724264/initServer.git
-
+software_path=/data/
 
 #yum install jdk-1.8
 jdk() {
-	wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u111-b14/jdk-8u111-linux-x64.tar.gz
+	#wget -P $software_path --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u111-b14/jdk-8u111-linux-x64.tar.gz
+    [ -d  /usr/java] || mkdir /usr/java
+    cp $software_path/jdk-8u111-linux-x64.tar.gz  /usr/java/
+    tar -zvxf  /usr/java/jdk-8u111-linux-x64.tar.gz
 }
 
 
@@ -26,7 +29,7 @@ mosquitto() {
 }
 #wget download tomcat
 tomcat() {
-	wget https://mirrors.aliyun.com/apache/tomcat/tomcat-8/v8.5.14/bin/apache-tomcat-8.5.14.tar.gz
+	wget -P $software_path https://mirrors.aliyun.com/apache/tomcat/tomcat-8/v8.5.14/bin/apache-tomcat-8.5.14.tar.gz
 }
 
 
@@ -35,7 +38,7 @@ start(){
 }
 
 testFun() {
-	cat ./data/javaEnvironment >> ./data/testFun
+	[ -d  /usr/java] || mkdir /usr/java
 
 }
 
