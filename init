@@ -1,6 +1,6 @@
 #!/bin/bash
 #operating system: CentOS  above 7.2
-
+# git clone https://github.com/357724264/initServer.git
 
 
 #yum install jdk-1.8
@@ -35,7 +35,7 @@ start(){
 }
 
 testFun() {
-	echo ./data/javaEnvironment  ./data/testFun
+	echo ./data/javaEnvironment  >> ./data/testFun
 
 }
 
