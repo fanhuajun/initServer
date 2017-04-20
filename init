@@ -38,7 +38,7 @@ start(){
 }
 
 testFun() {
-	[ -d  /usr/java] || mkdir /usr/java
+	[ -d  /usr/java ] || mkdir -p /usr/java
 
 }
 
