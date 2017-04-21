@@ -41,6 +41,8 @@ install_activemq() {
 #yum install nginx
 install_nginx() {
 	yum install nginx
+	cp ./default.conf  /etc/nginx/conf.d/default.conf
+	service nginx start
 }
 
 
