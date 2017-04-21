@@ -17,7 +17,7 @@ jdk() {
 install_redis() {
     yum install tcl
   
-	# wget http://download.redis.io/releases/redis-3.2.8.tar.gz
+	# wget -P $software_path http://download.redis.io/releases/redis-3.2.8.tar.gz
 	[ -d  $install_path/redis ] || mkdir -p $install_path/redis
 	tar -zvxf  $software_path/redis-* -C $install_path/redis/
 	cd $install_path/redis/redis-*/
@@ -34,16 +34,17 @@ install_redis() {
 
 #yum install mysql	CentOS 6.x
 install_mysql() {
+	cd -P $software_path
 
 	wget https://repo.mysql.com//mysql57-community-release-el6-10.noarch.rpm
 	sudo rpm -Uvh mysql57-community-release-el6-10.noarch.rpm
 
     ### start install
-	yum repolist all | grep mysql
+	#yum repolist all | grep mysql
 	yum repolist enabled | grep mysql
 	sudo yum install mysql-community-server
 	sudo service mysqld start
-	sudo service mysqld status
+	#sudo service mysqld status
 
 	#mysql -uroot -p 
 
@@ -73,7 +74,7 @@ start(){
 }
 
 testFun() {
-	install_redis;
+	install_mysql;
 
 }
 
