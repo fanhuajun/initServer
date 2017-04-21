@@ -29,6 +29,13 @@ install_redis() {
     make install
 
 }
+
+#wget install zookeeper
+install_zookeeper() {
+	# wget https://mirrors.aliyun.com/apache/zookeeper/zookeeper-3.4.6/zookeeper-3.4.6.tar.gz
+	tar -zvxf $software_path/zookeeper-*  -C $install_path/zookeeper/
+}
+
 #wget install activemq
 install_activemq() {
 	wget -P $software_path http://mirrors.hust.edu.cn/apache//activemq/5.14.5/apache-activemq-5.14.5-bin.tar.gz
@@ -80,6 +87,8 @@ tomcat() {
 
 	[ -d  $install_path/tomcat ] || mkdir -p $install_path/tomcat
 	tar -zvxf  $software_path/apache-tomcat-* -C $install_path/tomcat/
+
+	mv $install_path/tomcat/apache-tomcat-*/ $install_path/tomcat/tomcat-8080-portal
 }
 
 
