@@ -7,10 +7,12 @@ install_path=/usr/local/
 #yum install jdk-1.8
 jdk() {
 	#wget -P $software_path --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u111-b14/jdk-8u111-linux-x64.tar.gz
-    [ -d  /usr/java ] || mkdir -p /usr/java
-    cp $software_path/jdk-8u111-linux-x64.tar.gz  /usr/java/
-    tar -zvxf  /usr/java/jdk-* -C /usr/java/
+    [ -d  $install_path/java ] || mkdir -p $install_path/java
+    cp $software_path/jdk-8*  $install_path/java/
+
+    tar -zvxf  $install_path/java/jdk-* -C $install_path/java/
     cat ./data/javaEnvironment >> /etc/profile
+    source /etc/profile
 }
 
 #yum install redis
@@ -22,8 +24,8 @@ install_redis() {
 	tar -zvxf  $software_path/redis-* -C $install_path/redis/
 	cd $install_path/redis/redis-*/
 	dir
-	make
-    make test
+	#make
+    #make test
     make install
 
 }
@@ -46,7 +48,9 @@ install_mysql() {
 	sudo service mysqld start
 	#sudo service mysqld status
 
-	#mysql -uroot -p 
+	chkconfig mysqld on
+
+	#mysql -uroot -p >B)kS+MVq5-#
 
 }
 
@@ -71,6 +75,7 @@ start(){
 	#mosquitto;
 	jdk;
 	tomcat;
+	install_redis;
 }
 
 testFun() {
