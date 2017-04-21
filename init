@@ -29,6 +29,14 @@ install_redis() {
     make install
 
 }
+#wget install activemq
+install_activemq() {
+	wget -P $software_path http://mirrors.hust.edu.cn/apache//activemq/5.14.5/apache-activemq-5.14.5-bin.tar.gz
+	[ -d $install_path/activemq ] || mkdir -p $install_path/activemq
+
+	tar -zvxf $software_path/apache-activemq-*  -C $install_path/activemq/
+}
+
 
 #yum install nginx
 
