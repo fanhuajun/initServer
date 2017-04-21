@@ -39,7 +39,9 @@ install_activemq() {
 
 
 #yum install nginx
-
+install_nginx() {
+	yum install nginx
+}
 
 
 #yum install mysql	CentOS 6.x
@@ -87,8 +89,7 @@ start(){
 }
 
 testFun() {
-	install_mysql;
-
+	cp ./default.conf  /etc/nginx/conf.d/default.conf
 }
 
 case "$1" in
