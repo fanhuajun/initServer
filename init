@@ -27,6 +27,7 @@ install_redis() {
 	#make
     #make test
     make install
+    $install_path/redis/redis-*/redis-server &
 
 }
 
