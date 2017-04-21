@@ -1,5 +1,5 @@
 location ~ .*\.(html)$ {    
         expires 24h;    
-            root /home/images/;#指定图片存放路径    
+            root /ebahome/ebasaas/;#指定图片存放路径    
                 
     }
