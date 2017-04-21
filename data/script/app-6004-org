@@ -22,7 +22,7 @@ RETVAL=0
 
 
 ##########################################################################################
-JAVA_HOME=/usr/local/jdk/jdk1.8.0_101
+JAVA_HOME=/usr/local/java/jdk1.8.0_111
 CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib
 MAINCLASS=ooh/bravo/container/spring/Startup
 BASE_OPTS="-Dserver.home=$prog_dir -Dlogback.configurationFile=$prog_dir/conf/logback.xml -Djms.clientId=$prog_keyword"
