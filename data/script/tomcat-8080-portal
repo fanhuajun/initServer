@@ -24,7 +24,7 @@ RETVAL=0
 
 
 ##########################################################################################
-JAVA_HOME=/usr/local/jdk/jdk1.8.0_111
+JAVA_HOME=/usr/local/java/jdk1.8.0_111
 CLASSPATH=$JAVA_HOME/lib:$JAVA_HOME/jre/lib
 export CATALINA_OUT=/dev/null
 TLIB_OPTS="-Xbootclasspath/a:$prog_web/WEB-INF/lib/transmittable-thread-local-$ttl_version.jar -javaagent:$prog_web/WEB-INF/lib/transmittable-thread-local-$ttl_version.jar"
