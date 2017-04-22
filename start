@@ -1,0 +1,47 @@
+#!/bin/bash
+#operating system:  CentOS 6.x
+# git clone https://github.com/357724264/initServer.git
+software_path=/data/
+install_path=/usr/local/
+
+
+
+start_redis() {
+	#/usr/local/redis/redis-*/src/redis-server&
+    install_path/redis/redis-*/src/redis-server&
+
+}
+
+start_zookeeper() {
+	#/usr/local/zookeeper/zookeeper-*/bin/zkServer.sh start
+	install_path/zookeeper/zookeeper-*/bin/zkServer.sh start
+}
+
+start_activemq() {
+	#/usr/local//activemq/apache-activemq-*/bin/activemq start
+	install_path/activemq/apache-activemq-*/bin/activemq start
+}
+
+
+
+
+all(){
+	start_redis;
+	start_zookeeper;
+	start_activemq;
+}
+
+testFun() {
+	install_zookeeper;
+}
+
+case "$1" in
+	all )
+		all;;
+    test)
+        testFun;;
+		*)
+        echo "Usage: $0 {all|mosquitto}"
+            exit 1
+esac
+exit 0
