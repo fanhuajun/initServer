@@ -8,18 +8,18 @@ install_path=/usr/local/
 
 start_redis() {
 	#/usr/local/redis/redis-*/src/redis-server&
-    install_path/redis/redis-*/src/redis-server&
+    $install_path/redis/redis-*/src/redis-server&
 
 }
 
 start_zookeeper() {
 	#/usr/local/zookeeper/zookeeper-*/bin/zkServer.sh start
-	install_path/zookeeper/zookeeper-*/bin/zkServer.sh start
+	$install_path/zookeeper/zookeeper-*/bin/zkServer.sh start
 }
 
 start_activemq() {
 	#/usr/local//activemq/apache-activemq-*/bin/activemq start
-	install_path/activemq/apache-activemq-*/bin/activemq start
+	$install_path/activemq/apache-activemq-*/bin/activemq start
 }
 
 
