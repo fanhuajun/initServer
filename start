@@ -11,6 +11,9 @@ start_redis() {
     $install_path/redis/redis-*/src/redis-server&
     sleep 3s
     echo success
+    $install_path/redis/redis-*/src/redis-sentinel ../sentinel.conf&
+    sleep 3s
+    echo success
 
 }
 
@@ -28,6 +31,10 @@ start_activemq() {
 	echo success
 }
 
+start_dubbo-monitor-simple() {
+	#/usr/local/dubbo/monitor/dubbo-monitor-simple/bin/start.sh
+	$install_path/dubbo/monitor/dubbo-monitor-simple/bin/start.sh
+}
 
 
 
