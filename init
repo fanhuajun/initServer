@@ -80,7 +80,7 @@ install_mysql() {
 #yum install mosquitto
 mosquitto() {
 	#配置yum
-    cp ./data/mosquitto.repo  /etc/yum.repos.d/
+    cp ./data/mosquitto.repo  /etc/yum.repos.d/  #复制文件
 	yum install mosquitto mosquitto-clients
 	service mosquitto start
 }
