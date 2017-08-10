@@ -40,7 +40,7 @@ install_zookeeper() {
 }
 
 #wget install activemq
-install_activemq() {
+activemq() {
 	wget -P $software_path http://mirrors.hust.edu.cn/apache//activemq/5.14.5/apache-activemq-5.14.5-bin.tar.gz
 	[ -d $install_path/activemq ] || mkdir -p $install_path/activemq
 
@@ -94,6 +94,22 @@ tomcat() {
 	mv $install_path/tomcat/apache-tomcat-*/ $install_path/tomcat/tomcat-8080-portal
 }
 
+#升级glibc-2.14
+#strings /lib64/libc.so.6 |grep GLIBC_
+updateGlibc() {
+	wget http://ftp.gnu.org/gnu/glibc/glibc-2.14.tar.gz
+	tar xvf glibc-2.14.tar.xz
+    cd glibc-2.14
+    mkdir build
+    cd build
+    ../configure --prefix=/usr/local/glibc-2.14   // 配置glibc并设置当前glibc-2.14安装目录
+    make -j4
+    make install
+    cp /usr/local/glibc-2.14/lib/libc-2.14.so /lib64/libc-2.14.so 
+    mv /lib64/libc.so.6 /lib64/libc.so.6.bak
+    LD_PRELOAD=/lib64/libc-2.14.so ln -s /lib64/libc-2.14.so /lib64/libc.so.6
+    # export LD_LIBRARY_PATH=/opt/glibc-2.14/lib:$LD_LIBRARY_PATH
+}
 
 start(){
 	#mosquitto;
@@ -113,8 +129,10 @@ case "$1" in
         mosquitto;;
     test)
         testFun;;
+    activemq)
+        activemq;;
 		*)
-        echo "Usage: $0 {start|mosquitto}"
+        echo "Usage: $0 {start|mosquitto|activemq}"
             exit 1
 esac
 exit 0
