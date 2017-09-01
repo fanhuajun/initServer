@@ -24,12 +24,12 @@ start_zookeeper() {
 	echo success
 }
 
-start_activemq() {
+activemq() {
 	#/usr/local//activemq/apache-activemq-*/bin/activemq start
 	$install_path/activemq/apache-activemq-*/bin/activemq start
 	sleep 3s
 	echo success
-	# /root/apache-activemq-5.14.0/bin/activemq
+	# /root/apache-activemq-5.14.0/bin/activemq start
 }
 
 start_dubbo-monitor-simple() {
