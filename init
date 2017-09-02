@@ -49,7 +49,7 @@ activemq() {
 
 
 #yum install nginx
-install_nginx() {
+nginx() {
 	yum install nginx
 	cp ./default.conf  /etc/nginx/conf.d/default.conf #替换配置文件
 	service nginx start
@@ -57,7 +57,7 @@ install_nginx() {
 
 
 #yum install mysql	CentOS 6.x
-install_mysql() {
+mysql() {
 	cd -P $software_path
 
 	wget https://repo.mysql.com//mysql57-community-release-el6-10.noarch.rpm
@@ -132,7 +132,9 @@ case "$1" in
         testFun;;
     activemq)
         activemq;;
-		*)
+	nginx)
+        nginx;;
+	*)
         echo "Usage: $0 {start|mosquitto|activemq}"
             exit 1
 esac

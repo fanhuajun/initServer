@@ -37,6 +37,11 @@ start_dubbo-monitor-simple() {
 	$install_path/dubbo/monitor/dubbo-monitor-simple/bin/start.sh
 }
 
+start_nginx() {
+	#/usr/local/dubbo/monitor/dubbo-monitor-simple/bin/start.sh
+	/usr/local/nginx/sbin/nginx -s reload
+}
+
 
 
 all(){
