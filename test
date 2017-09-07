@@ -3,3 +3,6 @@ location ~ .*\.(html)$ {
             root /ebahome/ebasaas/;#指定图片存放路径    
                 
     }
+
+ps -ef | grep mosquitto
+kill -s 9 1827

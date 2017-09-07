@@ -84,6 +84,20 @@ mosquitto() {
 	yum install mosquitto mosquitto-clients
 	service mosquitto start
 }
+
+# source make
+mosquitto_src(){
+	#http://www.cnblogs.com/chen1-kerr/p/7258487.html
+    yum install gcc gcc-c++ libstdc++-devel 
+	yum install openssl-devel -y
+	yum install c-ares-devel -y
+	yum install uuid-devel -y
+	yum install libuuid-devel -y
+
+	wget -P /data/ http://mosquitto.org/files/source/mosquitto-1.4.tar.gz
+	make && make install
+}
+
 #wget download tomcat
 tomcat() {
 	wget -P /data/ http://mirrors.aliyun.com/apache/tomcat/tomcat-8/v8.0.46/bin/apache-tomcat-8.0.46.tar.gz
@@ -111,6 +125,12 @@ updateGlibc() {
     LD_PRELOAD=/lib64/libc-2.14.so ln -s /lib64/libc-2.14.so /lib64/libc.so.6
     # export LD_LIBRARY_PATH=/opt/glibc-2.14/lib:$LD_LIBRARY_PATH
 }
+
+#GCC编译器
+gcc(){
+	yum -y install gcc
+}
+
 
 start(){
 	#mosquitto;
