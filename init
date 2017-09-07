@@ -86,9 +86,9 @@ mosquitto() {
 }
 
 # source make
-mosquitto_src(){
+mosquitto_src() {
 	#http://www.cnblogs.com/chen1-kerr/p/7258487.html
-    yum install gcc gcc-c++ libstdc++-devel 
+	yum install gcc gcc-c++ libstdc++-devel 
 	yum install openssl-devel -y
 	yum install c-ares-devel -y
 	yum install uuid-devel -y
@@ -146,13 +146,15 @@ testFun() {
 case "$1" in
 	start )
 		start;;
-	mosquitto)
+	mosquitto )
         mosquitto;;
-    test)
+    mosquitto_src )
+		mosquitto_src;;
+    test )
         testFun;;
-    activemq)
+    activemq )
         activemq;;
-	nginx)
+	nginx )
         nginx;;
 	*)
         echo "Usage: $0 {start|mosquitto|activemq}"
