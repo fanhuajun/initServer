@@ -1,5 +1,5 @@
 #!/bin/bash
-#operating system:  CentOS 6.x
+# operating system:  CentOS 6.x
 # git clone https://github.com/357724264/initServer.git
 software_path=/data/
 install_path=/usr/local/
@@ -41,10 +41,10 @@ install_zookeeper() {
 
 #wget install activemq
 activemq() {
-	wget -P $software_path http://mirrors.hust.edu.cn/apache//activemq/5.14.5/apache-activemq-5.14.5-bin.tar.gz
-	[ -d $install_path/activemq ] || mkdir -p $install_path/activemq
+	wget -P /data http://mirrors.hust.edu.cn/apache//activemq/5.14.5/apache-activemq-5.14.5-bin.tar.gz
+	[ -d /usr/local/activemq ] || mkdir -p /usr/local/activemq
 
-	tar -zvxf $software_path/apache-activemq-*  -C $install_path/activemq/
+	tar -zvxf /data/apache-activemq-*  -C /usr/local/activemq/
 }
 
 
