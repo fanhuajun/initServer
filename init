@@ -19,24 +19,24 @@ jdk() {
 install_redis() {
     yum install tcl
   
-	# wget -P $software_path http://download.redis.io/releases/redis-3.2.8.tar.gz
-	[ -d  $install_path/redis ] || mkdir -p $install_path/redis
+	# wget -P /data http://download.redis.io/releases/redis-3.2.8.tar.gz
+	[ -d  /usr/local/redis ] || mkdir -p /usr/local/redis
 	tar -zvxf  /data/redis-* -C /usr/local/redis/
-	cd $install_path/redis/redis-*/
+	cd /usr/local/redis/redis-*/
 	dir
 	#make
     #make test
     make install
-    $install_path/redis/redis-*/redis-server &
+    /usr/local/redis/redis-*/redis-server &
 
 }
 
 #wget install zookeeper
 install_zookeeper() {
-	wget -P $software_path http://mirrors.aliyun.com/apache/zookeeper/zookeeper-3.4.8/zookeeper-3.4.8.tar.gz
+	wget -P /data http://mirrors.aliyun.com/apache/zookeeper/zookeeper-3.4.8/zookeeper-3.4.8.tar.gz
 
-	tar -zvxf $software_path/zookeeper-*  -C $install_path/zookeeper/
-	$install_path/zookeeper/zookeeper-*/bin/zkServer.sh start
+	tar -zvxf /data/zookeeper-*  -C /usr/local/zookeeper/
+	/usr/local/zookeeper/zookeeper-*/bin/zkServer.sh start
 }
 
 #wget install activemq
@@ -58,7 +58,7 @@ nginx() {
 
 #yum install mysql	CentOS 6.x
 mysql() {
-	cd -P $software_path
+	cd -P /data
 
 	wget https://repo.mysql.com//mysql57-community-release-el6-10.noarch.rpm
 	sudo rpm -Uvh mysql57-community-release-el6-10.noarch.rpm

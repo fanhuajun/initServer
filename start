@@ -8,25 +8,25 @@ install_path=/usr/local/
 
 start_redis() {
 	#/usr/local/redis/redis-*/src/redis-server&
-    $install_path/redis/redis-*/src/redis-server&
+    /usr/local/redis/redis-*/src/redis-server&
     sleep 3s
     echo success
-    $install_path/redis/redis-*/src/redis-sentinel ../sentinel.conf&
+    /usr/local/redis/redis-*/src/redis-sentinel ../sentinel.conf&
     sleep 3s
     echo success
-
+#./redis-sentinel sentinel.conf
 }
 
 start_zookeeper() {
 	#/usr/local/zookeeper/zookeeper-*/bin/zkServer.sh start
-	$install_path/zookeeper/zookeeper-*/bin/zkServer.sh start
+	/usr/local/zookeeper/zookeeper-*/bin/zkServer.sh start
 	sleep 3s
 	echo success
 }
 
 activemq() {
 	#/usr/local//activemq/apache-activemq-*/bin/activemq start
-	$install_path/activemq/apache-activemq-*/bin/activemq start
+	/usr/local/activemq/apache-activemq-*/bin/activemq start
 	sleep 3s
 	echo success
 	# /root/apache-activemq-5.14.0/bin/activemq start
@@ -34,7 +34,7 @@ activemq() {
 
 start_dubbo-monitor-simple() {
 	#/usr/local/dubbo/monitor/dubbo-monitor-simple/bin/start.sh
-	$install_path/dubbo/monitor/dubbo-monitor-simple/bin/start.sh
+	/usr/local/dubbo/monitor/dubbo-monitor-simple/bin/start.sh
 }
 
 start_nginx() {
