@@ -7,10 +7,11 @@ install_path=/usr/local/
 
 
 start_redis() {
-	#/usr/local/redis/redis-*/src/redis-server&
+	#/usr/local/redis-*/src/redis-server&
     /usr/local/redis/redis-*/src/redis-server&
     sleep 3s
     echo success
+    #/usr/local/redis-*/src/redis-sentinel sentinel.conf&
     /usr/local/redis/redis-*/src/redis-sentinel ../sentinel.conf&
     sleep 3s
     echo success
