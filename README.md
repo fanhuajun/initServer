@@ -1,5 +1,5 @@
 ## mysql 安装
-```shell
+```ruby
 yum install mysql
 yum install mysql-server
 yum install mysql-devel
@@ -11,6 +11,6 @@ SET PASSWORD FOR 'root'@'localhost' = PASSWORD('secret_password');
 ```
 
 - 如果要reboot自启动：
-```shell
+```ruby
 chkconfig --levels 345 mysqld on
 ```
