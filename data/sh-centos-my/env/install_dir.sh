@@ -1,5 +1,6 @@
 #!/bin/bash
 
+web=apache
 export httpd_version=2.2.27
 web_dir=httpd-${httpd_version}
 export web_dir
