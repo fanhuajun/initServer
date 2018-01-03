@@ -163,7 +163,7 @@ MySQL:
 account:root
 password:mysql_password
 
-ZABBIX:
+ZABBIX: fanhuajun
 account:admin
 password:zabbix_password
 END
