@@ -1,4 +1,10 @@
 #!/bin/bash
+
+# fanhuajun
+mkdir -p /alidata/server/mysql
+mkdir -p /alidata/log/mysql
+###
+
 if [ `uname -m` == "x86_64" ];then
 machine=x86_64
 else
@@ -33,3 +39,8 @@ sed -i 's#^datadir=$#datadir=/alidata/server/mysql/data#' /etc/init.d/mysqld
 sed -i 's#skip-external-locking#skip-external-locking\nlog-error=/alidata/log/mysql/error.log#' /etc/my.cnf
 chmod 755 /etc/init.d/mysqld
 /etc/init.d/mysqld start
+
+
+# fanhuajun
+/alidata/server/mysql/bin/mysqladmin -u root password "fanhuajun"
+##

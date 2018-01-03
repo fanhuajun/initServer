@@ -1,4 +1,5 @@
 ## mysql 安装
+
 ```shell
 yum install mysql
 yum install mysql-server
@@ -11,6 +12,7 @@ SET PASSWORD FOR 'root'@'localhost' = PASSWORD('secret_password');
 ```
 
 - 如果要reboot自启动：
+
 ```shell
 chkconfig --levels 345 mysqld on
 ```

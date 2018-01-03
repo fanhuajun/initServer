@@ -187,7 +187,7 @@ fi
 ####---- mysql password initialization ----begin####
 echo "---------- rc init ok ----------" >> tmp.log
 TMP_PASS=$(date | md5sum |head -c 10)
-/alidata/server/mysql/bin/mysqladmin -u root password "$TMP_PASS"
+/alidata/server/mysql/bin/mysqladmin -u root password "fanhuajun"
 sed -i s/'mysql_password'/${TMP_PASS}/g account.log
 echo "---------- mysql init ok ----------" >> tmp.log
 ####---- mysql password initialization ----end####
