@@ -5,6 +5,9 @@ if [ ! -f httpd-2.2.27.tar.gz ];then
 fi
 tar zxvf httpd-2.2.27.tar.gz
 cd httpd-2.2.27
+#fanhuajun
+mkdir -p /alidata/server/httpd
+
 ./configure --prefix=/alidata/server/httpd \
 --with-mpm=prefork \
 --enable-so \
