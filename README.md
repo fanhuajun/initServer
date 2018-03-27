@@ -8,7 +8,7 @@ chgrp -R mysql /var/lib/mysql
 chmod -R 770 /var/lib/mysql
 service mysqld start 
 mysql
-SET PASSWORD FOR 'root'@'localhost' = PASSWORD('secret_password');
+SET PASSWORD FOR 'root'@'localhost' = PASSWORD('fhj');
 ```
 
 - 如果要reboot自启动：

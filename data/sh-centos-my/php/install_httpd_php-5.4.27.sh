@@ -11,6 +11,7 @@ mkdir -p /alidata/server/php
 ##
 ./configure --prefix=/alidata/server/php \
 --with-config-file-path=/alidata/server/php/etc \
+
 --with-apxs2=/alidata/server/httpd/bin/apxs \
 --with-mysql=mysqlnd \
 --with-mysqli=mysqlnd \

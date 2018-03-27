@@ -42,5 +42,5 @@ chmod 755 /etc/init.d/mysqld
 
 
 # fanhuajun
-/alidata/server/mysql/bin/mysqladmin -u root password "fanhuajun"
+/alidata/server/mysql/bin/mysqladmin -u root password "fhj"
 ##

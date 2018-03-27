@@ -7,6 +7,11 @@ tar zxvf httpd-2.2.27.tar.gz
 cd httpd-2.2.27
 #fanhuajun
 mkdir -p /alidata/server/httpd
+mkdir -p /alidata/www/default
+userdel www
+groupadd www
+useradd -g www -M -d /alidata/www -s /sbin/nologin www &> /dev/null
+##
 
 ./configure --prefix=/alidata/server/httpd \
 --with-mpm=prefork \
@@ -40,7 +45,7 @@ sed -i "s#User daemon#User www#" /alidata/server/httpd/conf/httpd.conf
 sed -i "s#Group daemon#Group www#" /alidata/server/httpd/conf/httpd.conf
 sed -i "s;#ServerName www.example.com:80;ServerName www.example.com:80;" /alidata/server/httpd/conf/httpd.conf
 sed -i "s#/alidata/server/httpd/htdocs#/#" /alidata/server/httpd/conf/httpd.conf
-#sed -i "s#<Directory />#<Directory \"/alidata/www\">#" /alidata/server/httpd/conf/httpd.conf
+sed -i "s#<Directory />#<Directory \"/alidata/www\">#" /alidata/server/httpd/conf/httpd.conf
 sed -i '/<Directory \/>/,+5 d' /alidata/server/httpd/conf/httpd.conf
 sed -i "s#Options Indexes FollowSymLinks#Options FollowSymLinks#" /alidata/server/httpd/conf/httpd.conf
 sed -i "s#DirectoryIndex index.html#DirectoryIndex index.html index.htm index.php#" /alidata/server/httpd/conf/httpd.conf
